@@ -1,6 +1,5 @@
 package solution
 
-// Description:
 // Given an array nums, write a function to move all zeros to the end of it
 // while maintaining the relative order of the non-zero elements.
 //
@@ -11,13 +10,6 @@ package solution
 //
 // You must do this in-place without making a copy of the array.
 // Minimize the total number of operations.
-
-// Analysis:
-// The 2 requirements of the question are:
-//  - Move all the 0's to the end of array.
-//  - All the non-zero elements must retain their original order.
-// It is good to realize here that both the requirements are mutually exclusive.
-// You can solve the individual sub-problems and then combine them for the final solution.
 
 // Naive solution: count number of zeros, fill non-zero values, and then fill zeros.
 // Space Complexity: O(n). Since we are creating the "ans" array to store results.
