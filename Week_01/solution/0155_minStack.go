@@ -8,14 +8,14 @@ package solution
 // Methods pop, top and getMin operations will always be called on non-empty stacks.
 
 type MinStack struct {
-	stack    *minStackHelper
-	minStack *minStackHelper
+	stack    *stack
+	minStack *stack
 }
 
 func NewMinStack() MinStack {
 	return MinStack{
-		stack:    newMinStackHelper(),
-		minStack: newMinStackHelper(),
+		stack:    newStack(),
+		minStack: newStack(),
 	}
 }
 
@@ -40,30 +40,4 @@ func (x *MinStack) Top() int {
 
 func (x *MinStack) GetMin() int {
 	return x.minStack.top()
-}
-
-type minStackHelper struct {
-	data []int
-}
-
-func newMinStackHelper() *minStackHelper {
-	return &minStackHelper{
-		data: make([]int, 0),
-	}
-}
-
-func (x *minStackHelper) push(v int) {
-	x.data = append(x.data, v)
-}
-
-func (x *minStackHelper) pop() {
-	x.data = x.data[:len(x.data)-1]
-}
-
-func (x *minStackHelper) top() int {
-	return x.data[len(x.data)-1]
-}
-
-func (x *minStackHelper) isEmpty() bool {
-	return len(x.data) == 0
 }
