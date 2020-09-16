@@ -8,14 +8,14 @@ package solution
 // Methods pop, top and getMin operations will always be called on non-empty stacks.
 
 type MinStack struct {
-	stack    *stack
-	minStack *stack
+	stack    *intStack
+	minStack *intStack
 }
 
 func NewMinStack() MinStack {
 	return MinStack{
-		stack:    newStack(),
-		minStack: newStack(),
+		stack:    newIntStack(),
+		minStack: newIntStack(),
 	}
 }
 

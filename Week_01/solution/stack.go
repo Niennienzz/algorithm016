@@ -1,29 +1,29 @@
 package solution
 
-type stack struct {
+type intStack struct {
 	data []int
 }
 
-func newStack() *stack {
-	return &stack{
+func newIntStack() *intStack {
+	return &intStack{
 		data: make([]int, 0),
 	}
 }
 
-func (x *stack) push(v int) {
+func (x *intStack) push(v int) {
 	x.data = append(x.data, v)
 }
 
-func (x *stack) pop() int {
+func (x *intStack) pop() int {
 	v := x.data[len(x.data)-1]
 	x.data = x.data[:len(x.data)-1]
 	return v
 }
 
-func (x *stack) top() int {
+func (x *intStack) top() int {
 	return x.data[len(x.data)-1]
 }
 
-func (x *stack) isEmpty() bool {
+func (x *intStack) isEmpty() bool {
 	return len(x.data) == 0
 }

@@ -12,7 +12,7 @@ package solution
 func largestRectangleAreaUsingStack(heights []int) int {
 	var (
 		max   = 0
-		stack = newStack()
+		stack = newIntStack()
 	)
 
 	stack.push(-1)

@@ -2,8 +2,10 @@ package solution
 
 // 1 -> 2 -> 3 -> nil
 func reverseListIterative(head *ListNode) *ListNode {
-	prev := new(ListNode)
-	curr := head
+	var (
+		prev *ListNode
+		curr = head
+	)
 	for curr != nil {
 		temp := curr.Next
 		curr.Next = prev
