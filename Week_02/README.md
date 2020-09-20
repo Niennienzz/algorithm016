@@ -7,7 +7,7 @@
 - Coding.
 - Testing.
 
-## 哈希, 映射, 集合
+## 哈希 / 映射 / 集合
 
 - 严格来说, Map, Set 等等之类的数据结构都是一套接口, 底层的实现可以不一样.
   - 以 Set 为例: HashSet, TreeSet, ConcurrentSkipListSet 等等.
@@ -20,7 +20,7 @@
     - 如果 p1 仍然冲突, 再以 p 为基础产生另一个哈希地址p2.
     - 直到找出一个不冲突的哈希地址pi, 将相应元素存入其中.
 
-## 树, 二叉树, 二叉搜索树
+## 树 / 二叉树 / 二叉搜索树
 
 ### 树
 
@@ -56,7 +56,7 @@
     - 综上, 删除实际上也要进行查找, 以及常数次的节点调整, 因此**删除为 O(logN)**.
   - 极端情况下 BST 在没有平衡操作的帮助下会退化成单链表.
 
-## 堆, 二叉堆
+## 堆 / 二叉堆
 
 ### 堆
 
@@ -111,3 +111,30 @@ Array RepresentatioN: [110, 100, 90, 40, 80, 20, 60, 10, 30, 50, 70]
   - 从堆顶开始, 依次用当前的父节点和两个子节点的值比较, 父节点与较大的子节点交换.
   - 时间复杂度为树的深度: O(logN), 因为尾元素总是很小, 放到堆顶之后, 最后又会被调整至尾部附近.
   - 之所以用尾元素替代堆顶, 是因为明知道它会被向下调整, 但是可以保持树其他地方的完全性以及已有的顺序, 实际操作次数最小, 逻辑简单.
+
+## 图
+
+### 定义
+
+- Graph(Vertx, Edge)
+- Vertx: 点
+  - 度: 入度和出度.
+  - 点与点之间: 连通与否.
+- Edge: 边
+  - 有向与无向.
+  - 权重 (边长).
+
+### 表示方法 / 分类
+
+- Adjacency Matrix, Adjacency List.
+- 有向有权
+- 有向无权
+- 无向有权
+- 无向无权
+
+### More on Graphs
+
+- [连通图个数](https://leetcode-cn.com/problems/number-of-islands/)
+- [拓扑排序 Topological Sorting](https://zhuanlan.zhihu.com/p/34871092)
+- [最短路径 Dijkstra](https://www.bilibili.com/video/av25829980?from=search&seid=13391343514095937158)
+- [最小生成树 Minimum Spanning Tree](https://www.bilibili.com/video/av84820276?from=search&seid=17476598104352152051)
