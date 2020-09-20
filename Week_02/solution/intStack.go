@@ -1,6 +1,5 @@
 package solution
 
-// Integer.
 type intStack struct {
 	data []int
 }
