@@ -20,22 +20,20 @@ package solution
 // Output: [[1]]
 
 func combine(n int, k int) [][]int {
-	ans := make([][]int, 0, 100)
-	cur := make([]int, 0, k)
-	backtrack(1, k, n, &cur, &ans)
+	ans := [][]int{}
+	combineLoop(1, n, k, nil, &ans)
 	return ans
 }
 
-func backtrack(start, k, n int, cur *[]int, ans *[][]int) {
-	if len(*cur) == k {
-		cpy := make([]int, k)
-		copy(cpy, *cur)
-		*ans = append(*ans, cpy)
+func combineLoop(s, n, k int, curr []int, ans *[][]int) {
+	if k < 0 {
+		return
 	}
-
-	for i := start; i <= n; i++ {
-		*cur = append(*cur, i)
-		backtrack(i+1, k, n, cur, ans)
-		*cur = (*cur)[:len(*cur)-1]
+	if k == 0 {
+		*ans = append(*ans, append([]int{}, curr...))
+		return
+	}
+	for i := s; i <= n; i++ {
+		combineLoop(i+1, n, k-1, append(curr, i), ans)
 	}
 }
