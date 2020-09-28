@@ -43,3 +43,28 @@ func nthUglyNumberUsingHeap(n int) int {
 
 	return nums[n-1]
 }
+
+func nthUglyNumberDynamic(n int) int {
+	if n == 1 {
+		return 1
+	}
+
+	p2, p3, p5 := 0, 0, 0
+	dp := make([]int, n)
+	dp[0] = 1
+
+	for i := 1; i < n; i++ {
+		dp[i] = minInt3(dp[p2]*2, dp[p3]*3, dp[p5]*5)
+		if dp[i] == dp[p2]*2 {
+			p2 += 1
+		}
+		if dp[i] == dp[p3]*3 {
+			p3 += 1
+		}
+		if dp[i] == dp[p5]*5 {
+			p5 += 1
+		}
+	}
+
+	return dp[n-1]
+}
