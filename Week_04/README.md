@@ -85,3 +85,24 @@ def BFS(graph, start, end):
 - 贪心算法难在: **如何证明使用贪心算法能得到全局最优解**.
   - 例如找零钱问题中, 假设零钱面值为: \[10, 5, 1], 我们需要找最少的零钱个数给对方.
   - 因为零钱的三个面值它们**成倍数关系**, 两个 5 肯定比不上一个 10, 以此类推, 所以可以用贪心算法.
+
+## 二分查找
+
+- 先决条件:
+  - 有序: 单调递增或递减.
+  - 存在上下界.
+  - 能够通过索引访问 (单链表 vs 跳表)
+  
+### 二分查找模板
+
+```python
+left, right = 0, len(array) - 1
+while left <= right:
+    mid = (left + right) / 2
+    if array[mid] == target:
+        break or return result
+    elif array[mid] < target:
+        left = mid + 1
+    else:
+        right = mid - 1
+```
