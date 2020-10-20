@@ -10,26 +10,26 @@ package solution
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	var (
-		before = &ListNode{0, nil}
-		cursor = before
+		prev = &ListNode{0, nil}
+		curr = prev
 	)
 
 	for l1 != nil && l2 != nil {
 		if l1.Val <= l2.Val {
-			cursor.Next = l1
+			curr.Next = l1
 			l1 = l1.Next
 		} else {
-			cursor.Next = l2
+			curr.Next = l2
 			l2 = l2.Next
 		}
-		cursor = cursor.Next
+		curr = curr.Next
 	}
 
 	if l1 == nil {
-		cursor.Next = l2
+		curr.Next = l2
 	} else {
-		cursor.Next = l1
+		curr.Next = l1
 	}
 
-	return before.Next
+	return prev.Next
 }
