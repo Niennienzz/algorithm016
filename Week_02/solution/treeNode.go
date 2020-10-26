@@ -7,6 +7,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// Stack.
 type treeNodeStack struct {
 	data []*TreeNode
 }
@@ -33,4 +34,33 @@ func (x *treeNodeStack) top() *TreeNode {
 
 func (x *treeNodeStack) isEmpty() bool {
 	return len(x.data) == 0
+}
+
+// Queue.
+type treeNodeQueue struct {
+	data []*TreeNode
+}
+
+func newTreeNodeQueue() *treeNodeQueue {
+	return &treeNodeQueue{
+		data: make([]*TreeNode, 0),
+	}
+}
+
+func (x treeNodeQueue) size() int {
+	return len(x.data)
+}
+
+func (x treeNodeQueue) isEmpty() bool {
+	return x.size() == 0
+}
+
+func (x *treeNodeQueue) pop() *TreeNode {
+	v := x.data[0]
+	x.data = x.data[1:]
+	return v
+}
+
+func (x *treeNodeQueue) push(v *TreeNode) {
+	x.data = append(x.data, v)
 }

@@ -26,6 +26,7 @@ func generateParenthesisLoop(left, right, n int, curr string, ans *[]string) {
 	// Recursion terminator.
 	if left == n && right == n {
 		*ans = append(*ans, curr)
+		return
 	}
 
 	// Process logic in the current level: append either "(" or ")".

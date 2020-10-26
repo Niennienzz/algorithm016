@@ -20,20 +20,17 @@ package solution
 // Output: [[1]]
 
 func combine(n int, k int) [][]int {
-	ans := [][]int{}
+	var ans [][]int
 	combineLoop(1, n, k, nil, &ans)
 	return ans
 }
 
-func combineLoop(s, n, k int, curr []int, ans *[][]int) {
-	if k < 0 {
-		return
-	}
+func combineLoop(start, end, k int, curr []int, ans *[][]int) {
 	if k == 0 {
 		*ans = append(*ans, append([]int{}, curr...))
 		return
 	}
-	for i := s; i <= n; i++ {
-		combineLoop(i+1, n, k-1, append(curr, i), ans)
+	for i := start; i <= end; i++ {
+		combineLoop(i+1, end, k-1, append(curr, i), ans)
 	}
 }
